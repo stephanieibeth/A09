@@ -1,0 +1,206 @@
+/* custom property */
+:root {
+    --accent-color: #800000;  /* could also be coded #800 */
+    --gradient-color: #f6bb73;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* default styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(15px + .2vw);
+    width: min(80%, 1024px);
+    line-height: 1.5;
+    margin: auto;
+    border: 2px solid var(--accent-color);
+}
+h1, h2, h3, p, ul {
+    padding: .25em 0;
+}
+a:hover, a:focus{
+    font-style: italic;
+    color: var(--accent-color);
+}
+h1 {
+    font-size: 150%;
+}
+h2 {
+    font-size: 130%;
+    color: var(--accent-color);
+}
+h3 {
+    font-size: 105%;
+}
+ul {
+    margin-left: 2em;
+}
+
+/* the styles for the header */
+header {
+    line-height: 1.2;
+    border-bottom: 2px solid var(--accent-color);
+    background-image: linear-gradient(
+            30deg, var(--gradient-color) 0%, white 30%, white 65%, var(--gradient-color) 100%);
+    & h2 {
+        font-size: 175%;
+        padding: .5em 0 0 0;
+    }
+    & h3 {
+        font-size: 130%;
+        font-style: italic;
+        padding-bottom: 1em;
+    }
+    & img {
+        width: clamp(40px, 15%, 80px);
+        float: left;
+        margin: .75em 1em;
+    }
+}
+
+/* ===== NAV BAR ===== */
+.site-nav{
+    background: var(--accent-color);          /* solid red bar */
+    border-top: none;
+    border-bottom: 2px solid #4a0000;         /* subtle edge line */
+}
+
+.menu{
+    list-style: none;
+    display: flex;
+    justify-content: center;                  /* center the row */
+    gap: 3.5rem;                              /* wide, even spacing */
+    padding: .75rem 1rem;                     /* taller bar like sample */
+    position: relative;
+}
+
+.menu > li > a{
+    color: #fff;                              /* white links */
+    text-decoration: none;
+    padding: .5rem .9rem;                     /* tab padding */
+    border-radius: 3px 3px 0 0;               /* tab shape */
+    display: inline-block;
+}
+
+/* White "active" tab */
+.menu > li > a.current{
+    background: #fff;
+    color: var(--accent-color);
+}
+
+/* Hover/focus: darker red, keep white text */
+.menu > li > a:hover,
+.menu > li > a:focus{
+    background: #9b1b1b;
+    color: #fff;
+}
+
+/* ===== Dropdown (About Us) stays vertical ===== */
+.has-submenu{ position: relative; }
+
+.submenu{
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border: 1px solid #ccc;
+    display: none;
+    flex-direction: column;      /* vertical */
+    z-index: 10;
+}
+
+.submenu li a{
+    display: block;
+    padding: .55rem .9rem;
+    color: #222;                              /* black text inside dropdown */
+    text-decoration: none;
+}
+
+.submenu li a:hover,
+.submenu li a:focus{
+    background: #f5f5f5;
+}
+
+.has-submenu:hover > .submenu,
+.has-submenu:focus-within > .submenu{
+    display: flex;
+}
+
+/* the styles for the main content */
+main {
+    display: flex;
+    clear: left;
+    padding: 0 1em 1em;
+    & blockquote {
+        font-style: italic;
+        padding-left: 1em;
+    }
+    & h3 + img {
+        width: clamp(40px, 50%, 75px);
+        border: 4px double var(--accent-color);
+        border-radius: 10px;
+    }
+}
+
+/* the styles for the section */
+section {
+    flex-basis: 75%;
+    padding-left: .5em;
+    & img {
+        width: clamp(100px, 50%, 250px);
+        float: right;
+        margin: 0 1em .25em;
+    }
+}
+
+/* the styles for the aside */
+aside {
+    flex-basis: 25%;
+    padding-right: .5em;
+}
+
+/* the styles for the footer */
+footer {
+    background-color: var(--accent-color);
+    & p {
+        text-align: center;
+        color: white;
+        padding: 1em 0;
+    }
+}
+
+/* CSS class */
+.featured {
+    border-top: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding: .5em 0 1em;
+}
+.speaker {
+    & h1 {
+        color: var(--accent-color);
+    }
+    & h2 {
+        color: black;
+    }
+    & p {
+        padding: .5em 0;
+    }
+}
+.large {
+    font-size: 125%;
+}
+
+/* circle bullets  */
+.circle-list {
+    list-style-type: circle;
+    margin-left: 2em;
+}
+.circle-list li { margin: .25rem 0; }
+
